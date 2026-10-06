@@ -1,3 +1,7 @@
+/*
+ * Time: O(n)
+ * Space: O(min(m, n))
+ */
 class Solution {
 public:
     int lengthOfLongestSubstring(string s) {

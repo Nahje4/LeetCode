@@ -1,3 +1,7 @@
+/*
+ * Time: O(max(m, n))
+ * Space: O(max(m, n))
+ */
 /**
  * Definition for singly-linked list.*/
  struct ListNode {
