@@ -1,18 +1,3 @@
-#!/usr/bin/env python3
-"""Regenerate the auto-managed sections of README.md.
-
-Scans <Difficulty>/<N>.<Name>/solution.<ext>, fetches problem metadata from
-LeetCode (title, slug, difficulty, topic tags) and the profile stats, then
-rewrites the blocks between <!-- NAME:START --> / <!-- NAME:END --> markers.
-
-Time / space complexity are read from comments in the solution files:
-    // Time: O(n)        # Time: O(n)
-    // Space: O(1)       # Space: O(1)
-
-Standard library only. Metadata is cached in scripts/leetcode_cache.json so
-each problem is fetched once.
-"""
-
 import json
 import re
 import sys
@@ -39,7 +24,7 @@ LANGS = {
     ".js": ("js", "JavaScript"),
     ".ml": ("ocaml", "OCaml"),
 }
-DIFF_EMOJI = {"Easy": "🟢", "Medium": "🟡", "Hard": "🔴"}
+DIFF_LEVEL = {"Easy": 1, "Medium": 2, "Hard": 3}
 DIFF_COLOR = {"Easy": "00B8A3", "Medium": "FFC01E", "Hard": "EF4743", "All": "FFA116"}
 
 HEADERS = {
@@ -47,6 +32,7 @@ HEADERS = {
     "User-Agent": "Mozilla/5.0 (readme-bot; +https://github.com/Nahje4/LeetCode)",
     "Referer": "https://leetcode.com",
 }
+
 
 def http_json(url, payload=None):
     data = json.dumps(payload).encode() if payload is not None else None
@@ -91,6 +77,7 @@ def fetch_profile_stats():
               for x in d["matchedUser"]["submitStats"]["acSubmissionNum"]}
     return {k: (solved.get(k, 0), total.get(k, 0)) for k in ("Easy", "Medium", "Hard", "All")}
 
+
 def guess_slug(name):
     s = name.replace("_", "-").lower()
     s = re.sub(r"[^a-z0-9-]", "", s)
@@ -128,8 +115,18 @@ def scan():
                                  "folder_diff": diff, "dir": d, "files": files})
     return sorted(problems, key=lambda p: int(p["id"]))
 
+
 def icon(lang_id, size=20):
     return f'<img src="https://skillicons.dev/icons?i={lang_id}" width="{size}"/>'
+
+
+def difficulty_badge(diff):
+    level = DIFF_LEVEL.get(diff)
+    if not level:
+        return diff
+    bars = "%20".join(["%E2%96%B0"] * level + ["%E2%96%B1"] * (3 - level))
+    return (f'<img src="https://img.shields.io/badge/{bars}-{DIFF_COLOR[diff]}'
+            f'?style=flat-square" width="64" height="20" alt="{diff}" title="{diff}"/>')
 
 
 def render_table(problems, cache):
@@ -151,7 +148,7 @@ def render_table(problems, cache):
         t, s = read_complexity(p["files"])
         rows.append(
             f"| {p['id']} | [{title}](https://leetcode.com/problems/{slug}/) "
-            f"| {DIFF_EMOJI.get(diff, '')} {diff} | {tags} | {' '.join(links)} "
+            f"| {difficulty_badge(diff)} | {tags} | {' '.join(links)} "
             f"| {f'`{t}`' if t else '—'} | {f'`{s}`' if s else '—'} |")
     return "\n".join(rows)
 
@@ -185,6 +182,7 @@ def replace_block(text, name, body):
         return text
     return pat.sub(lambda m: f"{m.group(1)}\n{body}\n{m.group(2)}", text)
 
+
 def main():
     problems = scan()
     cache = json.loads(CACHE.read_text()) if CACHE.exists() else {}
@@ -197,7 +195,7 @@ def main():
             try:
                 cache[p["id"]] = fetch_question(slug)
                 print(f"fetched #{p['id']} {slug}")
-            except Exception as e:  # noqa: BLE001
+            except Exception as e:
                 print(f"warn: #{p['id']} ({slug}) not fetched: {e}")
             time.sleep(0.5)
         CACHE.write_text(json.dumps(cache, indent=2, ensure_ascii=False, sort_keys=True) + "\n")
@@ -207,7 +205,7 @@ def main():
     text = replace_block(text, "LANGS", render_langs(problems))
     try:
         text = replace_block(text, "STATS", render_stats(fetch_profile_stats()))
-    except Exception as e:  # noqa: BLE001
+    except Exception as e:
         print(f"warn: profile stats not updated: {e}")
     README.write_text(text, encoding="utf-8")
     print(f"README updated: {len(problems)} problems")
