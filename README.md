@@ -16,6 +16,7 @@
 <br/><br/>
 
 <!-- LANGS:START -->
+<img src="https://skillicons.dev/icons?i=cpp&theme=dark" alt="C++"/>
 <!-- LANGS:END -->
 
 </div>
@@ -33,6 +34,10 @@
 <br/><br/>
 
 <!-- STATS:START -->
+<img src="https://img.shields.io/badge/Easy-11%20%2F%20969-00B8A3?style=for-the-badge&labelColor=1A1A1A"/>
+<img src="https://img.shields.io/badge/Medium-2%20%2F%202124-FFC01E?style=for-the-badge&labelColor=1A1A1A"/>
+<img src="https://img.shields.io/badge/Hard-1%20%2F%20980-EF4743?style=for-the-badge&labelColor=1A1A1A"/>
+<img src="https://img.shields.io/badge/Total-14%20%2F%204073-FFA116?style=for-the-badge&labelColor=1A1A1A"/>
 <!-- STATS:END -->
 
 </div>
@@ -42,6 +47,12 @@
 ## ✅ Solutions
 
 <!-- SOLUTIONS-TABLE:START -->
+| # | Problem | Difficulty | Pattern | Solution | Time | Space |
+|:--:|:--|:--:|:--|:--:|:--:|:--:|
+| 1 | [Two Sum](https://leetcode.com/problems/two-sum/) | 🟢 Easy | Array, Hash Table | [<img src="https://skillicons.dev/icons?i=cpp" width="20"/>](Easy/1.Two_Sum/solution.cc) | — | — |
+| 2 | [Add Two Numbers](https://leetcode.com/problems/add-two-numbers/) | 🟡 Medium | Linked List, Math, Recursion | [<img src="https://skillicons.dev/icons?i=cpp" width="20"/>](Medium/2.Add_Two_Numbers/solution.cc) | — | — |
+| 3 | [Longest Substring Without Repeating Characters](https://leetcode.com/problems/longest-substring-without-repeating-characters/) | 🟡 Medium | Hash Table, String, Sliding Window | [<img src="https://skillicons.dev/icons?i=cpp" width="20"/>](Medium/3.Longest_Substring_Without_Repeating_Characters/solution.cc) | — | — |
+| 4 | [Median of Two Sorted Arrays](https://leetcode.com/problems/median-of-two-sorted-arrays/) | 🔴 Hard | Array, Binary Search, Divide and Conquer | [<img src="https://skillicons.dev/icons?i=cpp" width="20"/>](Hard/4.Median_of_Two_Sorted_Arrays/solution.cc) | — | — |
 <!-- SOLUTIONS-TABLE:END -->
 
 ---

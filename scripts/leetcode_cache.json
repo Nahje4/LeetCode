@@ -1,0 +1,45 @@
+{
+  "1": {
+    "difficulty": "Easy",
+    "id": "1",
+    "slug": "two-sum",
+    "tags": [
+      "Array",
+      "Hash Table"
+    ],
+    "title": "Two Sum"
+  },
+  "2": {
+    "difficulty": "Medium",
+    "id": "2",
+    "slug": "add-two-numbers",
+    "tags": [
+      "Linked List",
+      "Math",
+      "Recursion"
+    ],
+    "title": "Add Two Numbers"
+  },
+  "3": {
+    "difficulty": "Medium",
+    "id": "3",
+    "slug": "longest-substring-without-repeating-characters",
+    "tags": [
+      "Hash Table",
+      "String",
+      "Sliding Window"
+    ],
+    "title": "Longest Substring Without Repeating Characters"
+  },
+  "4": {
+    "difficulty": "Hard",
+    "id": "4",
+    "slug": "median-of-two-sorted-arrays",
+    "tags": [
+      "Array",
+      "Binary Search",
+      "Divide and Conquer"
+    ],
+    "title": "Median of Two Sorted Arrays"
+  }
+}
