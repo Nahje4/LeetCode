@@ -34,10 +34,10 @@
 <br/><br/>
 
 <!-- STATS:START -->
-<img src="https://img.shields.io/badge/Easy-11%20%2F%20969-00B8A3?style=for-the-badge&labelColor=1A1A1A"/>
-<img src="https://img.shields.io/badge/Medium-2%20%2F%202124-FFC01E?style=for-the-badge&labelColor=1A1A1A"/>
-<img src="https://img.shields.io/badge/Hard-1%20%2F%20980-EF4743?style=for-the-badge&labelColor=1A1A1A"/>
-<img src="https://img.shields.io/badge/Total-14%20%2F%204073-FFA116?style=for-the-badge&labelColor=1A1A1A"/>
+<img src="https://img.shields.io/badge/Easy-11%20%2F%20971-00B8A3?style=for-the-badge&labelColor=1A1A1A"/>
+<img src="https://img.shields.io/badge/Medium-2%20%2F%202128-FFC01E?style=for-the-badge&labelColor=1A1A1A"/>
+<img src="https://img.shields.io/badge/Hard-1%20%2F%20982-EF4743?style=for-the-badge&labelColor=1A1A1A"/>
+<img src="https://img.shields.io/badge/Total-14%20%2F%204081-FFA116?style=for-the-badge&labelColor=1A1A1A"/>
 <!-- STATS:END -->
 
 </div>
