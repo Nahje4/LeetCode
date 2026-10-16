@@ -41,5 +41,17 @@
       "Divide and Conquer"
     ],
     "title": "Median of Two Sorted Arrays"
+  },
+  "5": {
+    "difficulty": "Medium",
+    "id": "5",
+    "slug": "longest-palindromic-substring",
+    "tags": [
+      "Two Pointers",
+      "String",
+      "Dynamic Programming",
+      "Manacher"
+    ],
+    "title": "Longest Palindromic Substring"
   }
 }

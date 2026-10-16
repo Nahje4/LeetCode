@@ -35,9 +35,9 @@
 
 <!-- STATS:START -->
 <img src="https://img.shields.io/badge/Easy-11%20%2F%20971-00B8A3?style=for-the-badge&labelColor=1A1A1A"/>
-<img src="https://img.shields.io/badge/Medium-2%20%2F%202128-FFC01E?style=for-the-badge&labelColor=1A1A1A"/>
+<img src="https://img.shields.io/badge/Medium-3%20%2F%202128-FFC01E?style=for-the-badge&labelColor=1A1A1A"/>
 <img src="https://img.shields.io/badge/Hard-1%20%2F%20983-EF4743?style=for-the-badge&labelColor=1A1A1A"/>
-<img src="https://img.shields.io/badge/Total-14%20%2F%204082-FFA116?style=for-the-badge&labelColor=1A1A1A"/>
+<img src="https://img.shields.io/badge/Total-15%20%2F%204082-FFA116?style=for-the-badge&labelColor=1A1A1A"/>
 <!-- STATS:END -->
 
 </div>
@@ -53,6 +53,7 @@
 | 2 | [Add Two Numbers](https://leetcode.com/problems/add-two-numbers/) | <img src="https://img.shields.io/badge/%E2%96%B0%20%E2%96%B0%20%E2%96%B1-FFC01E?style=flat-square" width="64" height="20" alt="Medium" title="Medium"/> | Linked List, Math, Recursion | [<img src="https://skillicons.dev/icons?i=cpp" width="20"/>](Medium/2.Add_Two_Numbers/solution.cc) | `O(max(m, n))` | `O(max(m, n))` |
 | 3 | [Longest Substring Without Repeating Characters](https://leetcode.com/problems/longest-substring-without-repeating-characters/) | <img src="https://img.shields.io/badge/%E2%96%B0%20%E2%96%B0%20%E2%96%B1-FFC01E?style=flat-square" width="64" height="20" alt="Medium" title="Medium"/> | Hash Table, String, Sliding Window | [<img src="https://skillicons.dev/icons?i=cpp" width="20"/>](Medium/3.Longest_Substring_Without_Repeating_Characters/solution.cc) | `O(n)` | `O(min(m, n))` |
 | 4 | [Median of Two Sorted Arrays](https://leetcode.com/problems/median-of-two-sorted-arrays/) | <img src="https://img.shields.io/badge/%E2%96%B0%20%E2%96%B0%20%E2%96%B0-EF4743?style=flat-square" width="64" height="20" alt="Hard" title="Hard"/> | Array, Binary Search, Divide and Conquer | [<img src="https://skillicons.dev/icons?i=cpp" width="20"/>](Hard/4.Median_of_Two_Sorted_Arrays/solution.cc) | `O(log(min(m, n)))` | `O(1)` |
+| 5 | [Longest Palindromic Substring](https://leetcode.com/problems/longest-palindromic-substring/) | <img src="https://img.shields.io/badge/%E2%96%B0%20%E2%96%B0%20%E2%96%B1-FFC01E?style=flat-square" width="64" height="20" alt="Medium" title="Medium"/> | Two Pointers, String, Dynamic Programming | [<img src="https://skillicons.dev/icons?i=cpp" width="20"/>](Medium/5.Longest_Palindromic_Substring/solution.cc) | `O(n)` | `O(n)` |
 <!-- SOLUTIONS-TABLE:END -->
 
 ---
