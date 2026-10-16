@@ -8,6 +8,8 @@ from pathlib import Path
 LEETCODE_USER = "Nahje"
 ROOT = Path(__file__).resolve().parent.parent
 README = ROOT / "README.md"
+SITE = ROOT / "docs" / "index.html"
+REPO_BLOB = "https://github.com/Nahje4/LeetCode/blob/main/"
 CACHE = ROOT / "scripts" / "leetcode_cache.json"
 DIFF_DIRS = ("Easy", "Medium", "Hard")
 DIR_RE = re.compile(r"^(\d+)\.(.+)$")
@@ -129,28 +131,38 @@ def difficulty_badge(diff):
             f'?style=flat-square" width="64" height="20" alt="{diff}" title="{diff}"/>')
 
 
-def render_table(problems, cache):
+def problem_info(p, cache):
+    meta = cache.get(p["id"])
+    langs = {}
+    for f in p["files"]:
+        langs.setdefault(LANGS[f.suffix][0], f.relative_to(ROOT).as_posix())
+    t, s = read_complexity(p["files"])
+    return {"id": p["id"],
+            "title": meta["title"] if meta else p["name"].replace("_", " "),
+            "slug": meta["slug"] if meta else guess_slug(p["name"]),
+            "difficulty": meta["difficulty"] if meta else p["folder_diff"],
+            "tags": meta["tags"] if meta else [],
+            "langs": langs, "time": t, "space": s}
+
+
+def render_table(infos):
     rows = ["| # | Problem | Difficulty | Pattern | Solution | Time | Space |",
             "|:--:|:--|:--:|:--|:--:|:--:|:--:|"]
-    for p in problems:
-        meta = cache.get(p["id"])
-        title = meta["title"] if meta else p["name"].replace("_", " ")
-        slug = meta["slug"] if meta else guess_slug(p["name"])
-        diff = meta["difficulty"] if meta else p["folder_diff"]
-        tags = ", ".join(meta["tags"][:3]) if meta else ""
-        links, seen = [], set()
-        for f in p["files"]:
-            lang_id = LANGS[f.suffix][0]
-            if lang_id in seen:
-                continue
-            seen.add(lang_id)
-            links.append(f"[{icon(lang_id)}]({f.relative_to(ROOT).as_posix()})")
-        t, s = read_complexity(p["files"])
+    for i in infos:
+        links = [f"[{icon(lang_id)}]({path})" for lang_id, path in i["langs"].items()]
+        t, s = i["time"], i["space"]
         rows.append(
-            f"| {p['id']} | [{title}](https://leetcode.com/problems/{slug}/) "
-            f"| {difficulty_badge(diff)} | {tags} | {' '.join(links)} "
+            f"| {i['id']} | [{i['title']}](https://leetcode.com/problems/{i['slug']}/) "
+            f"| {difficulty_badge(i['difficulty'])} | {', '.join(i['tags'][:3])} | {' '.join(links)} "
             f"| {f'`{t}`' if t else '—'} | {f'`{s}`' if s else '—'} |")
     return "\n".join(rows)
+
+
+def render_site_data(infos):
+    data = [{**i, "langs": {k: REPO_BLOB + v for k, v in i["langs"].items()}} for i in infos]
+    # "</" would close the <script> tag early
+    body = json.dumps(data, ensure_ascii=False).replace("</", "<\\/")
+    return f'<script id="data" type="application/json">{body}</script>'
 
 
 def render_stats(stats):
@@ -178,7 +190,7 @@ def render_langs(problems):
 def replace_block(text, name, body):
     pat = re.compile(rf"(<!-- {name}:START -->).*?(<!-- {name}:END -->)", re.S)
     if not pat.search(text):
-        print(f"warn: markers for {name} not found in README")
+        print(f"warn: markers for {name} not found")
         return text
     return pat.sub(lambda m: f"{m.group(1)}\n{body}\n{m.group(2)}", text)
 
@@ -200,8 +212,12 @@ def main():
             time.sleep(0.5)
         CACHE.write_text(json.dumps(cache, indent=2, ensure_ascii=False, sort_keys=True) + "\n")
 
+    infos = [problem_info(p, cache) for p in problems]
+    site = SITE.read_text(encoding="utf-8")
+    SITE.write_text(replace_block(site, "DATA", render_site_data(infos)), encoding="utf-8")
+
     text = README.read_text(encoding="utf-8")
-    text = replace_block(text, "SOLUTIONS-TABLE", render_table(problems, cache))
+    text = replace_block(text, "SOLUTIONS-TABLE", render_table(infos))
     text = replace_block(text, "LANGS", render_langs(problems))
     try:
         text = replace_block(text, "STATS", render_stats(fetch_profile_stats()))

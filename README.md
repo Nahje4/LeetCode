@@ -46,6 +46,8 @@
 
 ## Solutions
 
+<a href="https://nahje4.github.io/LeetCode/"><img src="https://img.shields.io/badge/Search-solutions-FFA116?style=for-the-badge&logo=github&labelColor=1A1A1A"/></a>
+
 <!-- SOLUTIONS-TABLE:START -->
 | # | Problem | Difficulty | Pattern | Solution | Time | Space |
 |:--:|:--|:--:|:--|:--:|:--:|:--:|
