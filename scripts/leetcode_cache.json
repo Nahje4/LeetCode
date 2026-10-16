@@ -9,6 +9,17 @@
     ],
     "title": "Two Sum"
   },
+  "10": {
+    "difficulty": "Hard",
+    "id": "10",
+    "slug": "regular-expression-matching",
+    "tags": [
+      "String",
+      "Dynamic Programming",
+      "Recursion"
+    ],
+    "title": "Regular Expression Matching"
+  },
   "2": {
     "difficulty": "Medium",
     "id": "2",

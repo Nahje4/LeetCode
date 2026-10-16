@@ -36,8 +36,8 @@
 <!-- STATS:START -->
 <img src="https://img.shields.io/badge/Easy-11%20%2F%20971-00B8A3?style=for-the-badge&labelColor=1A1A1A"/>
 <img src="https://img.shields.io/badge/Medium-3%20%2F%202128-FFC01E?style=for-the-badge&labelColor=1A1A1A"/>
-<img src="https://img.shields.io/badge/Hard-1%20%2F%20983-EF4743?style=for-the-badge&labelColor=1A1A1A"/>
-<img src="https://img.shields.io/badge/Total-15%20%2F%204082-FFA116?style=for-the-badge&labelColor=1A1A1A"/>
+<img src="https://img.shields.io/badge/Hard-2%20%2F%20983-EF4743?style=for-the-badge&labelColor=1A1A1A"/>
+<img src="https://img.shields.io/badge/Total-16%20%2F%204082-FFA116?style=for-the-badge&labelColor=1A1A1A"/>
 <!-- STATS:END -->
 
 </div>
@@ -56,6 +56,7 @@
 | 3 | [Longest Substring Without Repeating Characters](https://leetcode.com/problems/longest-substring-without-repeating-characters/) | <img src="https://img.shields.io/badge/%E2%96%B0%20%E2%96%B0%20%E2%96%B1-FFC01E?style=flat-square" width="64" height="20" alt="Medium" title="Medium"/> | Hash Table, String, Sliding Window | [<img src="https://skillicons.dev/icons?i=cpp" width="20"/>](Medium/3.Longest_Substring_Without_Repeating_Characters/solution.cc) | `O(n)` | `O(min(m, n))` |
 | 4 | [Median of Two Sorted Arrays](https://leetcode.com/problems/median-of-two-sorted-arrays/) | <img src="https://img.shields.io/badge/%E2%96%B0%20%E2%96%B0%20%E2%96%B0-EF4743?style=flat-square" width="64" height="20" alt="Hard" title="Hard"/> | Array, Binary Search, Divide and Conquer | [<img src="https://skillicons.dev/icons?i=cpp" width="20"/>](Hard/4.Median_of_Two_Sorted_Arrays/solution.cc) | `O(log(min(m, n)))` | `O(1)` |
 | 5 | [Longest Palindromic Substring](https://leetcode.com/problems/longest-palindromic-substring/) | <img src="https://img.shields.io/badge/%E2%96%B0%20%E2%96%B0%20%E2%96%B1-FFC01E?style=flat-square" width="64" height="20" alt="Medium" title="Medium"/> | Two Pointers, String, Dynamic Programming | [<img src="https://skillicons.dev/icons?i=cpp" width="20"/>](Medium/5.Longest_Palindromic_Substring/solution.cc) | `O(n)` | `O(n)` |
+| 10 | [Regular Expression Matching](https://leetcode.com/problems/regular-expression-matching/) | <img src="https://img.shields.io/badge/%E2%96%B0%20%E2%96%B0%20%E2%96%B0-EF4743?style=flat-square" width="64" height="20" alt="Hard" title="Hard"/> | String, Dynamic Programming, Recursion | [<img src="https://skillicons.dev/icons?i=cpp" width="20"/>](Hard/10.Regular_Expression_Matching/solution.cc) | `O(2^(m + n/2))` | `O(m + n)` |
 | 66 | [Plus One](https://leetcode.com/problems/plus-one/) | <img src="https://img.shields.io/badge/%E2%96%B0%20%E2%96%B1%20%E2%96%B1-00B8A3?style=flat-square" width="64" height="20" alt="Easy" title="Easy"/> | Array, Math | [<img src="https://skillicons.dev/icons?i=cpp" width="20"/>](Easy/66.Plus_One/solution.cc) | `O(n)` | `O(1)` |
 <!-- SOLUTIONS-TABLE:END -->
 
