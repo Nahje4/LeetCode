@@ -53,5 +53,15 @@
       "Manacher"
     ],
     "title": "Longest Palindromic Substring"
+  },
+  "66": {
+    "difficulty": "Easy",
+    "id": "66",
+    "slug": "plus-one",
+    "tags": [
+      "Array",
+      "Math"
+    ],
+    "title": "Plus One"
   }
 }
